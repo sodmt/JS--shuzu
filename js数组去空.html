@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>数组去空</title>
+    </head>
+    <body>
+    </body>
+</html>
+<script>
+	function a(arr){
+		var newarr =[];
+		for(var i = 0;i < arr.length;i++){
+			if(arr[i] != undefined){
+				newarr[newarr.length]=arr[i]
+			}
+		}document.write(newarr);
+	}
+	a([3,28,23,,537,55,731]);
+</script>

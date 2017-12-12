@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	//构造数组方法
+	function MyArr(){
+		for(var i = 0;i < arguments.length;i++){
+			this[i] = arguments[i];
+		}
+		this.length = arguments.length;
+	}
+	MyArr.prototype = {
+		//添加
+		push:function(){                                  
+			for(var i = 0;i < arguments.length;i++){
+				this[this.length] = arguments[i];
+				this.length++;
+			}
+			return this;
+		},
+		//查找
+		indexOf:function(val){
+			for(var i = 0;i < this.length;i++){
+				if(this[i] == val){
+					return i;
+				}
+			}
+			return -1;
+		},
+		//排序
+		sort:function(ty){
+			ty = ty || 'min';
+			for(var i = 0;i < this.length;i++){
+				for(var j = i + 1;j < this.length;j++){
+					if(ty == 'max'){
+						if(this[i] < this[j]){
+							var a = this[i];
+							this[i] = this[j];
+							this[j] = a;	
+						}
+					}else if(ty == 'min'){
+						if(this[i] > this[j]){
+							var a = this[i];
+							this[i] = this[j];
+							this[j] = a;	
+						}
+					}
+				}
+			}
+			return this;
+		},
+		//扩大2倍
+		Kuoda:function(num){
+			for(var i = 0;i < this.length;i++){
+				this[i] = this[i]*num;
+			}
+			return this;
+		},
+		//去空
+		qukong:function(kong){
+			var Newkong = [];
+			for(var i = 0;i < this.length;i++){
+				if(this[i] != undefinde){
+					Newkong[Newthis.length] = this[i];
+				}
+				return this;
+				if(this[i] == null){
+					Newkong[Newkong.length] = this[i];
+				}
+			}
+		},
+		//反向输出
+		reverse:function(fan){
+			for(var i = 0;i < this.length;i++){
+				for(var j = i+1;j < this.length;j++){
+					var fan = this[i];
+					this[i] = this[j];
+					this[j] = fan;
+				}
+			}
+			return this;
+		},
+		//数组合并
+		concat:function(){
+			for(var i = 0;i < arguments.length;i++){
+				this[this.length] = arguments[i];
+				this.length++;
+			}
+			return this;
+		},
+		//数组最大最小值
+		zuizhi:function(num){
+		 	num = num || "min";
+		 	var sumarr = 0;
+			var maxarr;
+		 	for(i = 0;i < this.length;i++){
+		 		var maxarr = this[0];
+		 		if(num == "max"){
+		 			if(this[i] >= maxarr){
+		 				maxarr = this[i];
+		 			}
+		 		}else if(num == "min"){
+		 			if(this[i] <= maxarr){
+		 				maxarr = this[i];
+		 			}
+		 		}else if(num == "ave"){
+		 			for(var i = 0;i < this.length;i++){
+		 				sumarr += this[i];
+					}
+					maxarr = sumarr / this.length;
+		 		}
+		 	}
+		 	return maxarr;
+		},
+		//数据类型
+		leixing:function(){
+			var a = 0;
+			for(var i = 0;i < this.length;i++){
+				 this[a] = typeof this[i];
+				 a++;
+			}
+			return this;
+		},
+		//大于0
+		dayu:function(){
+			var a = [];
+			for(var i = 0;i < this.length;i++){
+				if(this[i] >= 0){
+					a[a.length] = this[i];
+				}
+			}
+			return a;
+		},
+		//去重
+		quchong:function(){
+			var d = 0;
+			for(var i =0; i < this.length; i++){
+				var b = true;
+				for(var a = i+1;a < this.length;a++){
+					if(this[a] === this[i]){
+						b = false;
+					}
+				}
+				if( b == true){
+					this[d] = this[i];
+					d++;
+				}
+			}
+			return this;
+		},
+		
+	}
+	var arr = new MyArr(3,6,'+',8,true,6,2,null,undefined);
+	// console.log(arr);
+	// console.log(arr.push('s',23,54));
+	// console.log(arr.indexOf(20));
+	// console.log(arr.sort('max'));
+	console.log(arr.Kuoda(2));
+	// console.log(arr.qukong(3,4,7,,6));
+	// console.log(arr.reverse());
+	// console.log(arr.concat('xh','xl','xz'));
+	// console.log(arr.zuizhi('avg'));
+	// console.log(arr.leixing());
+	// console.log(arr.quchong());
+	// console.log(arr.dayu());
+</script>
